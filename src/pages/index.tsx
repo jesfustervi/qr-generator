@@ -30,36 +30,33 @@ export default function Component() {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center">
-          QR Code Generator
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <Input
-            type="url"
-            placeholder="Enter URL"
-            value={url}
-            onChange={e => setUrl(e.target.value)}
-            className="w-full"
-          />
-          <Button onClick={handleGenerateQR} className="w-full">
-            Generate QR Code
-          </Button>
-          {isClient && qrCodeUrl && (
-            <div className="mt-4 flex justify-center">
-              <QRCode
-                value={qrCodeUrl}
-                size={200}
-                level="H"
-                includeMargin={true}
-              />
-            </div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+    <div className="flex items-center justify-center min-h-screen">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold text-center">
+            Generador de Código QR
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <Input
+              type="url"
+              placeholder="Ingrese URL"
+              value={url}
+              onChange={e => setUrl(e.target.value)}
+              className="w-full"
+            />
+            <Button onClick={handleGenerateQR} className="w-full">
+              Generar Código QR2
+            </Button>
+            {isClient && qrCodeUrl && (
+              <div className="mt-4 flex justify-center">
+                <QRCode value={qrCodeUrl} size={200} level="H" />
+              </div>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
