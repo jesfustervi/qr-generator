@@ -47,7 +47,7 @@ export default function Component() {
               className="w-full"
             />
             <Button onClick={handleGenerateQR} className="w-full">
-              Generar Código QR2
+              Generar Código QR
             </Button>
             {isClient && qrCodeUrl && (
               <div className="mt-4 flex justify-center">
