@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { ColorPicker } from "@/components/ColorPicker";
 import { QRCard } from "@/components/QRCard";
 
 const QRCode = dynamic(
@@ -107,6 +106,7 @@ export default function Component() {
                     cardList.map((card, index) => (
                       <QRCard
                         key={index}
+                        cardId={index}
                         card={card}
                         url={url}
                         onColorChange={(color) => handleUpdateColors(index, color)}
