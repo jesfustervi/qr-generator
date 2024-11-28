@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "vercel-build": "npm install --save-dev typescript @types/node && npm install && next build",
+    "vercel-build": "npm ci && next build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -20,16 +20,16 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "5.4.2",
     "@types/node": "20.11.30",
     "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react-dom": "^18"
+  },
+  "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.14",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "5.4.2"
+    "tailwindcss": "^3.4.1"
   }
 }
