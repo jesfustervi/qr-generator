@@ -2,8 +2,9 @@ import { CardTitle } from "@/components/ui/card";
 import { ColorPicker } from "@/components/ColorPicker";
 import { QRCodeSVG } from "qrcode.react";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, Copy, Check } from "lucide-react";
 import { useQRDownload } from "@/hooks/useQRDownload";
+import { useSVGCopy } from "@/hooks/useSVGCopy";
 
 interface QRCardProps {
   card: {
@@ -18,6 +19,7 @@ interface QRCardProps {
 
 export function QRCard({ card, url, onColorChange, cardId }: QRCardProps) {
   const { downloadQRCard } = useQRDownload();
+  const { copySVGCard, hasCopied } = useSVGCopy();
 
   return (
     <div>
@@ -34,6 +36,19 @@ export function QRCard({ card, url, onColorChange, cardId }: QRCardProps) {
           title="Descargar QR"
         >
           <Download className="h-4 w-4" />
+        </Button>
+        <Button 
+          variant="outline" 
+          size="icon"
+          onClick={() => copySVGCard(cardId)}
+          title={hasCopied ? "¡Copiado!" : "Copiar SVG"}
+          className={`transition-colors ${hasCopied ? 'bg-green-100 text-green-700 border-green-300' : ''}`}
+        >
+          {hasCopied ? (
+            <Check className="h-4 w-4" />
+          ) : (
+            <Copy className="h-4 w-4" />
+          )}
         </Button>
       </div>
       <div 
